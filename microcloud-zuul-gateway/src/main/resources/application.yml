@@ -1,0 +1,22 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: microcloud-zuul-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+zuul:
+  ignored-services: '*'
+  routes:
+    mydept.serviceId: microcloud-product
+    mydept.path: /product/**
+info:
+  app.name: microcloud
+  company.name: www.artbanku.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
